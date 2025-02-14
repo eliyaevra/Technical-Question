@@ -1,0 +1,2 @@
+rails new book_lending_library -d postgresql
+cd book_lending_library
