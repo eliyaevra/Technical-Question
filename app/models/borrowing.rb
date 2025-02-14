@@ -19,4 +19,8 @@ class Borrowing < ApplicationRecord
   def set_due_date
     self.due_date = 2.weeks.from_now
   end
+  def return_book
+  self.update(returned_at: Time.current)
 end
+end
+
