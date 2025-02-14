@@ -1,0 +1,19 @@
+<!-- index.html.erb -->
+<h1>Available Books</h1>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= book.title %> by <%= book.author %> (<%= book.isbn %>)
+      <% if book.borrowings.where(returned_at: nil).empty? %>
+        <%= link_to 'Borrow', borrow_book_path(book) %>
+      <% else %>
+        <strong>Borrowed</strong>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<!-- show.html.erb -->
+<h1><%= @book.title %> by <%= @book.author %></h1>
+<p>ISBN: <%= @book.isbn %></p>
+<p><%= link_to 'Back to Books', books_path %></p>
